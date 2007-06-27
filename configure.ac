@@ -20,7 +20,7 @@ PRINT_VAR(JAR)
 PRINT_VAR(JNI_INCLUDES)
 
 
-CPPFLAGS="-I$RRDHOME/include $CPPFLAGS"
+CPPFLAGS="-I$RRDHOME/include $JNI_INCLUDES $CPPFLAGS"
 LDFLAGS="$LDFLAGS -L$RRDHOME/lib"
 
 # Checks for libraries.
@@ -30,6 +30,7 @@ AC_SEARCH_LIBS([rrd_create], [rrd_th rrd], [], [AC_MSG_ERROR([cannot find rrd li
 AC_HEADER_STDC
 AC_CHECK_HEADERS([malloc.h stdlib.h string.h unistd.h])
 AC_CHECK_HEADER([rrd.h], [], [AC_MSG_ERROR([cannot find rrd.h header with CPPFLAGS="$CPPFLAGS"])])
+AC_CHECK_HEADER([jni.h], [], [AC_MSG_ERROR([cannot find jni.h header with CPPFLAGS="$CPPFLAGS"])])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
