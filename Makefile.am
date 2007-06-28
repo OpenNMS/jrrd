@@ -1,13 +1,18 @@
 ACLOCAL_AMFLAGS = -I m4
 
 classdir=classes
-VPATH += classes
+VPATH += $(classdir)
 
 lib_LTLIBRARIES = libjrrd.la
 libjrrd_la_SOURCES = rrd_jinterface.c
 libjrrd_la_LDFLAGS = -module
 
 MAINTAINERCLEANFILES = aclocal.m4 config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing config.h.in *~
+
+CLEANFILES = org_opennms_netmgt_rrd_rrdtool_Interface.h 
+
+clean-local:
+	-rm -rf $(classdir)
 
 .java.class:
 	-mkdir -p $(classdir)
