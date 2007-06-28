@@ -1,26 +1,25 @@
-ACLOCAL_AMFLAGS = -I .
-AM_CPPFLAGS = $(PGINCLUDES) $(all_includes)
-distdir = $(PACKAGE)-$(VERSION)-$(RELEASE)
+ACLOCAL_AMFLAGS = -I m4
 
-lib_LTLIBRARIES = iplike.la
-iplike_la_SOURCES = iplike.c
-iplike_la_LDFLAGS = -module -avoid-version
+lib_LTLIBRARIES = libjrrd.la
+libjrrd_la_SOURCES = rrd_jinterface.c
+libjrrd_la_LDFLAGS = -module
 
-sbin_SCRIPTS = install_iplike.sh
+MAINTAINERCLEANFILES = aclocal.m4 config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing config.h.in *~
 
-MAINTAINERCLEANFILES = aclocal.m4 config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing *~
+%.class: %.java
+	$(JAVAC) $<
 
-if MAKE_RPMS
-rpm: @RPM_TARGET@
+%.jar:
+	$(JAR) cvf $@ $<
 
-.PHONY: rpm
+rrd_jinterface.c: org_opennms_netmgt_rrd_rrdtool_Interface.h
 
-EXTRA_DIST = iplike.spec
+org_opennms_netmgt_rrd_rrdtool_Interface.h: org/opennms/netmgt/rrd/rrdtool/Interface.class
+	$(JAVAH) -classpath . org.opennms.netmgt.rrd.rrdtool.Interface
 
-$(RPM_TARGET): $(DISTFILES)
-	${MAKE} dist
-	-mkdir -p $(RPM_DIR)/SRPMS
-	-mkdir -p `dirname $(RPM_TARGET)`
-	$(RPMBUILD_PROG) $(RPM_ARGS) $(RPM_TARBALL)
-	@echo "$(RPM_TARGET) created"
-endif
+jrrd.jar: org/opennms/netmgt/rrd/rrdtool/Interface.class
+
+
+
+
+

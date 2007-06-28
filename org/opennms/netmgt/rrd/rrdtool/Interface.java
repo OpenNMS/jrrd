@@ -37,10 +37,6 @@
  */
 package org.opennms.netmgt.rrd.rrdtool;
 
-import org.apache.log4j.Category;
-import org.opennms.core.utils.ThreadCategory;
-import org.springframework.util.Assert;
-
 /**
  * This is a singleton class which provides an interface through which RRD
  * (Round Robin Database) functions (rrd_create(), rrd_update(), and others) can
@@ -119,10 +115,6 @@ public final class Interface {
         setInstance(new Interface());
     }
 
-    private Category log() {
-        return ThreadCategory.getInstance(getClass());
-    }
-
     private static boolean isLoaded() {
         return s_singleton != null;
     }
@@ -154,13 +146,13 @@ public final class Interface {
     private Interface() throws SecurityException, UnsatisfiedLinkError {
         String property = System.getProperty(PROPERTY_NAME);
         if (property != null) {
-            log().debug("System property '" + PROPERTY_NAME + "' set to '" + System.getProperty(PROPERTY_NAME) + ".  Attempting to load " + LIBRARY_NAME + " library from this location.");
+            debug("System property '" + PROPERTY_NAME + "' set to '" + System.getProperty(PROPERTY_NAME) + ".  Attempting to load " + LIBRARY_NAME + " library from this location.");
             System.load(property);
         } else {
-            log().debug("System property '" + PROPERTY_NAME + "' not set.  Attempting to load library using System.loadLibrary(\"" + LIBRARY_NAME + "\").");
+            debug("System property '" + PROPERTY_NAME + "' not set.  Attempting to load library using System.loadLibrary(\"" + LIBRARY_NAME + "\").");
             System.loadLibrary(LIBRARY_NAME);
         }
-        log().info("Successfully loaded " + LIBRARY_NAME + " library.");
+        info("Successfully loaded " + LIBRARY_NAME + " library.");
     }
 
     /**
@@ -172,13 +164,27 @@ public final class Interface {
      *             Thrown if the interface has not yet been initialized.
      */
     public static synchronized Interface getInstance() {
-        Assert.state(isLoaded(), "The RRD JNI interface has not been initialized");
+        assertState(isLoaded(), "The RRD JNI interface has not been initialized");
 
         return s_singleton;
     }
     
     public static synchronized void setInstance(Interface instance) {
         s_singleton = instance;
+    }
+
+    public static void debug(String msg) {
+        System.err.println("[DEBUG] "+msg);
+    }
+
+    public static void info(String msg) {
+        System.err.println("[INFO] "+msg);
+    }
+
+    public static void assertState(boolean check, String msg) {
+        if (!check) {
+	    throw new IllegalStateException(msg);
+	}
     }
 
     /**

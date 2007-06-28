@@ -5,9 +5,12 @@ AC_PREREQ(2.59)
 AC_INIT([jrrd], [1.0], [http://www.opennms.org])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADER([config.h])
+AM_INIT_AUTOMAKE([1.9 -Wall -Werror foreign])
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_LN_S
+AC_PROG_LIBTOOL
 AC_PROG_INSTALL
 ONMS_FIND_RRDHOME
 ONMS_CHECK_JDK([1.5])
@@ -19,7 +22,6 @@ PRINT_VAR(JAVAH)
 PRINT_VAR(JAR)
 PRINT_VAR(JNI_INCLUDES)
 
-
 CPPFLAGS="-I$RRDHOME/include $JNI_INCLUDES $CPPFLAGS"
 LDFLAGS="$LDFLAGS -L$RRDHOME/lib"
 
@@ -28,9 +30,9 @@ AC_SEARCH_LIBS([rrd_create], [rrd_th rrd], [], [AC_MSG_ERROR([cannot find rrd li
 
 # Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([malloc.h stdlib.h string.h unistd.h])
 AC_CHECK_HEADER([rrd.h], [], [AC_MSG_ERROR([cannot find rrd.h header with CPPFLAGS="$CPPFLAGS"])])
 AC_CHECK_HEADER([jni.h], [], [AC_MSG_ERROR([cannot find jni.h header with CPPFLAGS="$CPPFLAGS"])])
+AC_CHECK_HEADERS([malloc.h stdlib.h string.h unistd.h rrd.h jni.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

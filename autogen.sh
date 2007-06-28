@@ -10,6 +10,6 @@
 
 $ACLOCAL -I m4
 #$LIBTOOLIZE --automake --copy --force
-#$AUTOHEADER --force
+$AUTOHEADER --force
 $AUTOCONF --force
-#$AUTOMAKE --add-missing --copy
+$AUTOMAKE --add-missing --copy
