@@ -9,7 +9,7 @@
 [ -x "`which libtoolize 2>/dev/null`" ] && LIBTOOLIZE=libtoolize
 
 $ACLOCAL -I m4
-#$LIBTOOLIZE --automake --copy --force
+$LIBTOOLIZE --automake --copy --force
 $AUTOHEADER --force
 $AUTOCONF --force
 $AUTOMAKE --add-missing --copy
