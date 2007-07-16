@@ -1,0 +1,40 @@
+%define rel @RELEASE@
+%define version @VERSION@
+%define pkgname @PACKAGE@
+
+Name: %{pkgname}
+Version: %{version}
+Release: %{rel}
+License: GPL
+Group: Applications/Databases
+Summary: Java interface to RRDTool
+Source: %{name}-%{version}-%{release}.tar.gz
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
+
+BuildRequires: rrdtool-devel
+
+%description
+FIXME: better description  :)
+
+%prep
+%setup -n %{name}-%{version}-%{release}
+
+%build
+%configure
+make
+
+%install
+%makeinstall
+
+%clean
+if [ "$RPM_BUILD_ROOT" != "/" ]; then
+	rm -rf "$RPM_BUILD_ROOT"
+fi
+
+%files
+%attr(755,root,root) %{_libdir}/libjrrd*
+%attr(644,root,root) %{_datadir}/java/*.jar
+
+%changelog
+* Mon Jul 16 2007 Benjamin Reed <ranger@opennms.org>
+- initial package
