@@ -35,14 +35,6 @@ AC_CHECK_HEADER([rrd.h], [], [AC_MSG_ERROR([cannot find rrd.h header with CPPFLA
 AC_CHECK_HEADER([jni.h], [], [AC_MSG_ERROR([cannot find jni.h header with CPPFLAGS="$CPPFLAGS"])])
 AC_CHECK_HEADERS([malloc.h stdlib.h string.h unistd.h rrd.h jni.h])
 
-case $host_os in
-	darwin*)
-		SHREXT_COMMAND="-shrext .jnilib"
-		;;
-esac
-
-AC_SUBST(SHREXT_COMMAND)
-
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 

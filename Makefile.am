@@ -5,7 +5,7 @@ VPATH += $(classdir)
 
 lib_LTLIBRARIES = libjrrd.la
 libjrrd_la_SOURCES = rrd_jinterface.c
-libjrrd_la_LDFLAGS = -module -avoid-version $(SHREXT_COMMAND)
+libjrrd_la_LDFLAGS = -module -avoid-version $(JAVA_SHREXT_COMMAND)
 
 MAINTAINERCLEANFILES = aclocal.m4 config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing config.h.in *~
 
