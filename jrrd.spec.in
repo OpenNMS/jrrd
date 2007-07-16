@@ -8,7 +8,7 @@ Release: %{rel}
 License: GPL
 Group: Applications/Databases
 Summary: Java interface to RRDTool
-Source: %{name}-%{version}-%{release}.tar.gz
+Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 BuildRequires: rrdtool-devel
@@ -17,7 +17,7 @@ BuildRequires: rrdtool-devel
 FIXME: better description  :)
 
 %prep
-%setup -n %{name}-%{version}-%{release}
+%setup -n %{name}-%{version}
 
 %build
 %configure
