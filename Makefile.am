@@ -34,7 +34,7 @@ rpm: @RPM_TARGET@
 
 .PHONY: rpm
 
-EXTRA_DIST = jrrd.spec
+EXTRA_DIST = jrrd.spec org/opennms/netmgt/rrd/rrdtool/Interface.java
 
 $(RPM_TARGET): $(DISTFILES)
 	${MAKE} dist
