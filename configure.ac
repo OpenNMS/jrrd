@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT([jrrd], [1.0], [http://www.opennms.org])
+AC_INIT([jrrd], [1.0.1], [http://www.opennms.org])
 
 RELEASE=1
 AC_SUBST([RELEASE])
@@ -18,7 +18,7 @@ AC_PROG_LN_S
 AC_PROG_LIBTOOL
 AC_PROG_INSTALL
 ONMS_FIND_RRDHOME
-ONMS_CHECK_JDK([1.5])
+ONMS_CHECK_JDK([1.4])
 
 AM_RPM_INIT
 AM_CONDITIONAL(MAKE_RPMS, test x$make_rpms = xtrue)
