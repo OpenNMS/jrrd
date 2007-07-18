@@ -29,10 +29,13 @@ jrrd.jar: org/opennms/netmgt/rrd/rrdtool/Interface.class
 jardir=$(datadir)/java
 jar_DATA = jrrd.jar
 
+deploy:
+	mvn deploy:deploy-file
+
+.PHONY: deploy rpm
+
 if MAKE_RPMS
 rpm: @RPM_TARGET@
-
-.PHONY: rpm
 
 EXTRA_DIST = jrrd.spec org/opennms/netmgt/rrd/rrdtool/Interface.java
 

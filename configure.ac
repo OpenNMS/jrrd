@@ -48,5 +48,5 @@ AC_C_CONST
 # Checks for library functions.
 AC_FUNC_MALLOC
 
-AC_CONFIG_FILES([Makefile jrrd.spec])
+AC_CONFIG_FILES([Makefile jrrd.spec pom.xml])
 AC_OUTPUT
