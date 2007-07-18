@@ -43,15 +43,18 @@
  *
  * rrd_jinterface.c,v 1.1.1.1 2001/11/11 17:34:38 ben Exp
  *****************************************************************************/
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <jni.h>
 #include <unistd.h>
-#if defined(__APPLE_CC__) || defined(__bsdi__) || defined(__FreeBSD__)
-#include <sys/malloc.h>
-#else
-#include <malloc.h>
-#endif
 #include <string.h>
 #include <stdlib.h>
+
+#ifdef HAVE_GETOPT_H
+#include "getopt.h"
+#endif
 
 #include "rrd.h"
 #if 0
@@ -60,9 +63,6 @@
 #include "org_opennms_netmgt_rrd_rrdtool_Interface.h"
 #if 0
 #pragma export reset
-#endif
-#if !defined(__SOLARIS__) && !defined(__APPLE_CC__) && !defined(__bsdi__) && !defined(__FreeBSD__)
-#include "getopt.h"
 #endif
 
 #define FALSE 0
