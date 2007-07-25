@@ -7,7 +7,7 @@ lib_LTLIBRARIES = libjrrd.la
 libjrrd_la_SOURCES = rrd_jinterface.c
 libjrrd_la_LDFLAGS = -module -avoid-version $(JAVA_SHREXT_COMMAND)
 
-MAINTAINERCLEANFILES = aclocal.m4 config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing config.h.in *~
+MAINTAINERCLEANFILES = aclocal.m4 config.guess config.sub configure depcomp install-sh ltmain.sh Makefile.in missing config.h.in *~ *.tar.gz
 CLEANFILES = org_opennms_netmgt_rrd_rrdtool_Interface.h jrrd.jar
 
 clean-local:
