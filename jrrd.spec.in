@@ -17,7 +17,7 @@ Summary: Java interface to RRDTool
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
-BuildRequires: rrdtool-devel
+BuildRequires: rrdtool-devel, jdk >= 1.5.0-1, gcc
 
 %description
 FIXME: better description  :)
