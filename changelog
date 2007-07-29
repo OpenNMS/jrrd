@@ -1,0 +1,6 @@
+jrrd (1.0.1-1) unstable; urgency=low
+
+  * Initial release as separately versioned package
+
+ -- Jeff Gehlbach <jeffg@opennms.org>  Sun, 29 Jul 2007 12:35:17 -0500
+

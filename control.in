@@ -1,0 +1,12 @@
+Source: jrrd
+Section: contrib/libs
+Priority: extra
+Maintainer: Jeff Gehlbach <jeffg@opennms.org>
+Build-Depends: @cdbs@
+Standards-Version: 3.7.2
+
+Package: jrrd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Java interface to RRDTool
+ A Java native interface (JNI) to RRDTool
