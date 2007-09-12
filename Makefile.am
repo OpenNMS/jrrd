@@ -15,7 +15,7 @@ clean-local:
 
 .java.class:
 	-mkdir -p $(classdir)
-	$(JAVAC) -d $(classdir) $<
+	$(JAVAC) $(JAVACFLAGS) -d $(classdir) $<
 
 rrd_jinterface.c: org_opennms_netmgt_rrd_rrdtool_Interface.h
 
