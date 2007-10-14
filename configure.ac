@@ -19,6 +19,8 @@ AC_PROG_LIBTOOL
 AC_PROG_INSTALL
 ONMS_FIND_RRDHOME
 ONMS_CHECK_JDK([1.4])
+ONMS_CHECK_SUNCC
+ONMS_SET_CC_ARCH_CFLAGS
 
 AM_RPM_INIT
 AM_CONDITIONAL(MAKE_RPMS, test x$make_rpms = xtrue)
@@ -47,6 +49,10 @@ AC_C_CONST
 
 # Checks for library functions.
 AC_FUNC_MALLOC
+
+# Put this after the header checks due to warnings caused by autoconf-generated
+# C code (in particular, multiple return statements in AC_SEARCH_LIBS' main()).
+ONMS_SET_CC_WARNING_CFLAGS
 
 AC_CONFIG_FILES([Makefile jrrd.spec pom.xml])
 AC_OUTPUT
