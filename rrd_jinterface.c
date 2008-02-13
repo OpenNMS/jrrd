@@ -43,20 +43,26 @@
  *
  * rrd_jinterface.c,v 1.1.1.1 2001/11/11 17:34:38 ben Exp
  *****************************************************************************/
-#ifdef HAVE_CONFIG_H
 #include "config.h"
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+
+#ifdef HAVE_GETOPT_H
+#include <getopt.h>
 #endif
 
 #include <jni.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-
-#ifdef HAVE_GETOPT_H
-#include "getopt.h"
-#endif
-
-#include "rrd.h"
+#include <rrd.h>
 #if 0
 #pragma export on
 #endif
