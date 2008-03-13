@@ -47,9 +47,6 @@ AC_CHECK_HEADERS([getopt.h malloc.h stdlib.h string.h unistd.h rrd.h jni.h])
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 
-# Checks for library functions.
-AC_FUNC_MALLOC
-
 # Put this after the header checks due to warnings caused by autoconf-generated
 # C code (in particular, multiple return statements in AC_SEARCH_LIBS' main()).
 ONMS_SET_CC_WARNING_CFLAGS

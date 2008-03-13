@@ -26,6 +26,7 @@ get_filename_component(JAVABIN_PATH ${JAVA_COMPILE} PATH)
 include_directories(${JAVA_INCLUDE_PATH} ${JAVA_INCLUDE_PATH}/win32 ${JAVA_INCLUDE_PATH}/linux ${RRDTOOL_INCLUDE_DIR})
 
 check_include_files(getopt.h HAVE_GETOPT_H)
+check_include_files(malloc.h HAVE_MALLOC_H)
 check_include_files(stdlib.h HAVE_STDLIB_H)
 check_include_files(string.h HAVE_STRING_H)
 check_include_files(unistd.h HAVE_UNISTD_H)
