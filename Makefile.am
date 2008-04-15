@@ -34,10 +34,11 @@ deploy:
 
 .PHONY: deploy rpm
 
+EXTRA_DIST = org/opennms/netmgt/rrd/rrdtool/Interface.java
 if MAKE_RPMS
 rpm: @RPM_TARGET@
 
-EXTRA_DIST = jrrd.spec org/opennms/netmgt/rrd/rrdtool/Interface.java
+EXTRA_DIST += jrrd.spec
 
 $(RPM_TARGET): $(DISTFILES)
 	${MAKE} dist
