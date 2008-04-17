@@ -34,7 +34,16 @@ deploy:
 
 .PHONY: deploy rpm
 
-EXTRA_DIST = org/opennms/netmgt/rrd/rrdtool/Interface.java
+EXTRA_DIST = org/opennms/netmgt/rrd/rrdtool/Interface.java \
+	m4/* \
+	debian/changelog \
+	debian/compat \
+	debian/control \
+	debian/copyright \
+	debian/dirs \
+	debian/getjava \
+	debian/rules
+
 if MAKE_RPMS
 rpm: @RPM_TARGET@
 
