@@ -1,3 +1,9 @@
+jrrd (1.0.4-1) unstable; urgency=low
+
+  * New revision, Java fixes for Mac OS X.
+
+ -- Benjamin Reed <ranger@opennms.org>  Fri, 19 Nov 2010 11:53:00 -0500
+
 jrrd (1.0.3-2) unstable; urgency=low
 
   * Updated to build against librrd4
