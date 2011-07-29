@@ -1,3 +1,9 @@
+jrrd (1.0.5-1) unstable; urgency=low
+
+  * New revision, minor Java detection fixes.
+
+ -- Benjamin Reed <ranger@opennms.org>  Fri, 29 Jul 2011 13:34:00 -0500
+
 jrrd (1.0.4-1) unstable; urgency=low
 
   * New revision, Java fixes for Mac OS X.
