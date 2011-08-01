@@ -11,6 +11,7 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([1.9 -Wall -Werror foreign])
 AC_ENABLE_STATIC([no])
+LT_PREREQ([2.0])
 
 # Checks for programs.
 AC_PROG_CC
