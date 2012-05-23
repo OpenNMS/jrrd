@@ -1,3 +1,9 @@
+jrrd (1.0.6-1) stable; urgency=low
+
+  * Bump for build-system changes.
+
+ -- Benjamin Reed <ranger@opennms.org>  Wed, 23 May 2012 15:44:00 -0400
+
 jrrd (1.0.5-1) unstable; urgency=low
 
   * New revision, minor Java detection fixes.
