@@ -9,6 +9,6 @@ Standards-Version: 3.9.1
 
 Package: jrrd
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, rrdtool
 Description: Java interface to RRDTool
  A Java native interface (JNI) to RRDTool
