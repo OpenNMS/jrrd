@@ -1,3 +1,9 @@
+jrrd (1.0.7-1) stable; urgency=low
+
+  * Fix for ARM build.
+
+ -- Benjamin Reed <ranger@opennms.org>  Tue, 24 Jun 2014 10:42:00 -0400
+
 jrrd (1.0.6-1) stable; urgency=low
 
   * Bump for build-system changes.
