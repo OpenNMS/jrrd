@@ -1,8 +1,9 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
+m4_include([version.m4])
 AC_PREREQ(2.59)
-AC_INIT([jrrd], [1.0.6], [http://www.opennms.org])
+AC_INIT([jrrd], VERSION_NUMBER, [http://www.opennms.org])
 
 RELEASE=1
 AC_SUBST([RELEASE])
