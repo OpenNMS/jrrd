@@ -10,12 +10,12 @@ AC_SUBST([RELEASE])
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
+AM_INIT_AUTOMAKE([1.12 -Wall -Werror foreign])
 AC_ENABLE_STATIC([no])
 LT_PREREQ([2.0])
 
 # Checks for programs.
-m4_pattern_allow([AM_PROG_AR], [AM_PROG_AR])
+AM_PROG_AR
 AC_PROG_CC
 AC_PROG_LN_S
 AC_PROG_LIBTOOL
