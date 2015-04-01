@@ -35,8 +35,11 @@ PRINT_VAR(JAVAH)
 PRINT_VAR(JAR)
 PRINT_VAR(JNI_INCLUDES)
 
+AC_CHECK_LIBM
+AC_CHECK_LIB([pthread], [pthread_create])
+
 CPPFLAGS="-I$RRDHOME/include $JNI_INCLUDES $CPPFLAGS"
-LDFLAGS="$LDFLAGS -L$RRDHOME/lib"
+LDFLAGS="$LDFLAGS -L$RRDHOME/lib64 -L$RRDHOME/lib $LIBM $LIBS"
 
 # Checks for libraries.
 AC_SEARCH_LIBS([rrd_create], [rrd_th rrd], [], [AC_MSG_ERROR([cannot find rrd library with LDFLAGS = "$LDFLAGS"])])
