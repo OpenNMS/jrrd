@@ -22,7 +22,7 @@ rrd_jinterface.c: org_opennms_netmgt_rrd_rrdtool_Interface.h
 org_opennms_netmgt_rrd_rrdtool_Interface.h: org/opennms/netmgt/rrd/rrdtool/Interface.class
 	$(JAVAH) -classpath $(classdir) org.opennms.netmgt.rrd.rrdtool.Interface
 
-jrrd.jar: org/opennms/netmgt/rrd/rrdtool/Interface.class
+jrrd.jar: org/opennms/netmgt/rrd/rrdtool/Interface.class pom.xml
 	cd $(classdir) && \
 	$(JAR) cvf ../$@ *
 
@@ -42,7 +42,8 @@ EXTRA_DIST = org/opennms/netmgt/rrd/rrdtool/Interface.java \
 	debian/copyright \
 	debian/dirs \
 	debian/getjava \
-	debian/rules
+	debian/rules \
+	pom.xml
 
 if MAKE_RPMS
 rpm: @RPM_TARGET@
