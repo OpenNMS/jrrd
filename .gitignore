@@ -8,6 +8,9 @@
 *.lo
 *.loT
 *.la
+.classpath
+.project
+.settings
 Makefile
 Makefile.in
 aclocal.m4
@@ -32,3 +35,4 @@ missing
 pom.xml
 solaris/pkginfo
 stamp-h1
+/target/
