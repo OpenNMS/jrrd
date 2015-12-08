@@ -9,14 +9,36 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals><goal>jar</goal></goals>
+            <configuration>
+              <!--<finalName>${install.package.name}-${project.version}</finalName>-->
+              <classesDirectory>${project.basedir}/classes</classesDirectory>
+              <!--<includes><include>**/*.class</include></includes>-->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
-        <configuration>
-          <repositoryId>opennms-repo</repositoryId>
-          <url>scpexe://repo.opennms.org/var/www/sites/opennms.org/site/repo/maven2</url>
-          <file>jrrd.jar</file>
-          <pomFile>pom.xml</pomFile>
-        </configuration>
+        <version>2.8.2</version>
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>opennms-repo</id>
+      <name>OpenNMS Maven Repository</name>
+      <url>file:///mnt/repo-maven/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <id>opennms-snapshots</id>
+      <name>OpenNMS Snapshot Maven Repository</name>
+      <url>file:///mnt/repo-maven/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
