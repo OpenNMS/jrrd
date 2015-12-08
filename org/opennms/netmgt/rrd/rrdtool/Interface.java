@@ -1,7 +1,7 @@
 /*
  * This file is part of the OpenNMS(R) Application.
  *
- * OpenNMS(R) is Copyright (C) 2002-2003 The OpenNMS Group, Inc.  All rights reserved.
+ * OpenNMS(R) is Copyright (C) 2002-2015 The OpenNMS Group, Inc.  All rights reserved.
  * OpenNMS(R) is a derivative work, containing both original code, included code and modified
  * code that was published under the GNU General Public License. Copyrights for modified 
  * and included code are below.
@@ -24,7 +24,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.                                                            
+ * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
@@ -36,6 +36,11 @@
  *      http://www.opennms.com/
  */
 package org.opennms.netmgt.rrd.rrdtool;
+
+import java.io.File;
+import java.nio.file.Paths;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * This is a singleton class which provides an interface through which RRD
@@ -144,15 +149,54 @@ public final class Interface {
      *             if the library doesn't exist
      */
     private Interface() throws SecurityException, UnsatisfiedLinkError {
-        String property = System.getProperty(PROPERTY_NAME);
-        if (property != null) {
+        String jniPath = System.getProperty(PROPERTY_NAME);
+        try {
             debug("System property '" + PROPERTY_NAME + "' set to '" + System.getProperty(PROPERTY_NAME) + ".  Attempting to load " + LIBRARY_NAME + " library from this location.");
-            System.load(property);
-        } else {
-            debug("System property '" + PROPERTY_NAME + "' not set.  Attempting to load library using System.loadLibrary(\"" + LIBRARY_NAME + "\").");
+            System.load(jniPath);
+        } catch (final Throwable t) {
+            debug("System property '" + PROPERTY_NAME + "' not set.  Attempting to find library.");
             System.loadLibrary(LIBRARY_NAME);
         }
         info("Successfully loaded " + LIBRARY_NAME + " library.");
+    }
+
+    private static void loadLibrary() {
+        final Set<String> searchPaths = new LinkedHashSet<String>();
+
+        if (System.getProperty("java.library.path") != null) {
+            for (final String entry : System.getProperty("java.library.path").split(File.pathSeparator)) {
+                searchPaths.add(entry);
+            }
+        }
+
+        for (final String entry : new String[] {
+                "/usr/lib64/jni",
+                "/usr/lib64",
+                "/usr/local/lib64",
+                "/usr/lib/jni",
+                "/usr/lib",
+                "/usr/local/lib"
+        }) {
+            searchPaths.add(entry);
+        }
+
+        for (final String path : searchPaths) {
+            for (final String prefix : new String[] { "", "lib" }) {
+                for (final String suffix : new String[] { ".jnilib", ".dylib", ".so" }) {
+                    final File f = new File(path + File.separator + prefix + LIBRARY_NAME + suffix);
+                    if (f.exists()) {
+                        try {
+                            System.load(f.getCanonicalPath());
+                            return;
+                        } catch (final Throwable t) {
+                            // failed, keep looping and hope for a match
+                        }
+                    }
+                }
+            }
+        }
+        debug("Unable to locate '" + LIBRARY_NAME + "' in common paths.  Attempting System.loadLibrary() as a last resort.");
+        System.loadLibrary(LIBRARY_NAME);
     }
 
     /**
@@ -168,7 +212,7 @@ public final class Interface {
 
         return s_singleton;
     }
-    
+
     public static synchronized void setInstance(Interface instance) {
         s_singleton = instance;
     }
@@ -183,8 +227,8 @@ public final class Interface {
 
     public static void assertState(boolean check, String msg) {
         if (!check) {
-	    throw new IllegalStateException(msg);
-	}
+            throw new IllegalStateException(msg);
+        }
     }
 
     /**
