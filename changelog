@@ -1,3 +1,9 @@
+jrrd (1.1.0-1) stable; urgency=low
+
+  * Add better support for initializing the JNI shared library.
+
+ -- Benjamin Reed <ranger@opennms.org>  Tue, 08 Dec 2015 09:46:00 -0400
+
 jrrd (1.0.9-1) stable; urgency=low
 
   * Build system cleanups.
