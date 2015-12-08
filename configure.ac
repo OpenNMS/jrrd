@@ -20,6 +20,7 @@ AC_PROG_CC
 AC_PROG_LN_S
 AC_PROG_LIBTOOL
 AC_PROG_INSTALL
+AC_DEFINE([TAR_OPTIONS], [--owner=0 --group=0], [Work around large UID when creating tarball.])
 ONMS_FIND_RRDHOME
 ONMS_CHECK_JDK([1.5])
 ONMS_CHECK_SUNCC
