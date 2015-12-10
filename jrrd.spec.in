@@ -10,7 +10,7 @@
 
 Name: %{pkgname}
 Version: %{version}
-Release: %{rel}
+Release: %{rel}%{?dist}
 License: GPL
 Group: Applications/Databases
 Summary: Java interface to RRDTool
