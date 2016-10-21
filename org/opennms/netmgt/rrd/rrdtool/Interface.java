@@ -38,7 +38,6 @@
 package org.opennms.netmgt.rrd.rrdtool;
 
 import java.io.File;
-import java.nio.file.Paths;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
