@@ -15,7 +15,7 @@ AC_ENABLE_STATIC([no])
 LT_PREREQ([2.0])
 
 # Checks for programs.
-AM_PROG_AR
+m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
 AC_PROG_CC
 AC_PROG_LN_S
 AC_PROG_LIBTOOL
