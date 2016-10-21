@@ -1,8 +1,17 @@
+jrrd (1.1.2-1) stable; urgency=low
+
+  * Fix Java 1.5 compatibility.
+  * Handle old automake more gracefully.
+
+ -- Benjamin Reed <ranger@opennms.org>  Fri, 21 Oct 2016 16:04:45 -0400
+
 jrrd (1.1.1-1) stable; urgency=low
 
   * Update RPM spec to include distribution.
   * Fix Java handling on Mac OS X.
   * Convert to an OSGi bundle.
+
+ -- Benjamin Reed <ranger@opennms.org>  Fri, 21 Oct 2016 12:00:00 -0400
 
 jrrd (1.1.0-1) stable; urgency=low
 
