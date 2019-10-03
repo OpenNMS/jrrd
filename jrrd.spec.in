@@ -8,6 +8,8 @@
 %define _libdir %_prefix/lib64
 %endif
 
+%{!?jdk_dev_dep:%define jdk_dep java-1.8.0-openjdk-devel}
+
 Name: %{pkgname}
 Version: %{version}
 Release: %{rel}%{?dist}
@@ -17,7 +19,7 @@ Summary: Java interface to RRDTool
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
-BuildRequires: rrdtool-devel >= 1.5.0, java-sdk, gcc
+BuildRequires: rrdtool-devel >= 1.5.0, %{jdk_dev_dep}, gcc
 
 %description
 FIXME: better description  :)
