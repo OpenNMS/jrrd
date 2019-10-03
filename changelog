@@ -1,3 +1,9 @@
+jrrd (1.1.3-1) stable; urgency=low
+
+  * Small m4 update, build system fixes.
+
+ -- Benjamin Reed <ranger@opennms.org>  Thu, 03 Oct 2019 11:46:00 -0400
+
 jrrd (1.1.2-1) stable; urgency=low
 
   * Fix Java 1.5 compatibility.
