@@ -8,7 +8,7 @@
 %define _libdir %_prefix/lib64
 %endif
 
-%{!?jdk_dev_dep:%define jdk_dep java-1.8.0-openjdk-devel}
+%{!?jdk_dev_dep:%define jdk_dev_dep java-1.8.0-openjdk-devel}
 
 Name: %{pkgname}
 Version: %{version}
