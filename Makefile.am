@@ -36,13 +36,7 @@ deploy:
 
 EXTRA_DIST = org/opennms/netmgt/rrd/rrdtool/Interface.java \
 	m4/* \
-	debian/changelog \
-	debian/compat \
-	debian/control \
-	debian/copyright \
-	debian/dirs \
-	debian/getjava \
-	debian/rules \
+	debian/* \
 	pom.xml
 
 if MAKE_RPMS
