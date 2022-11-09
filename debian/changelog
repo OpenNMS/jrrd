@@ -1,3 +1,9 @@
+jrrd (1.1.5-1) stable; urgency=low
+
+  * Clean up some RPM build stuff, latest m4/ submodule.
+
+ -- Benjamin Reed <ranger@opennms.org>  Wed, 09 Nov 2022 11:12:00 -0400
+
 jrrd (1.1.4-1) stable; urgency=low
 
   * Typo in RPM spec.
