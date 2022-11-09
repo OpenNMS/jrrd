@@ -10,6 +10,8 @@
 
 %{!?jdk_dev_dep:%define jdk_dev_dep java-1.8.0-openjdk-devel}
 
+%define debug_package %{nil}
+
 Name: %{pkgname}
 Version: %{version}
 Release: %{rel}%{?dist}
